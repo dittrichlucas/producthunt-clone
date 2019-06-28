@@ -9,6 +9,12 @@ module.exports = {
         return res.json(products)
     },
 
+    async show(req, res) {
+        const findedProduct = await product.findById(req.params.id)
+
+        return res.json(findedProduct)
+    },
+
     async store(req, res) {
         const createdProduct = await product.create(req.body)
 
