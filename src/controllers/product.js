@@ -19,5 +19,12 @@ module.exports = {
         const createdProduct = await product.create(req.body)
 
         return res.json(createdProduct)
+    },
+
+    async update(req, res) {
+        const updatedProduct = await product
+            .findByIdAndUpdate(req.params.id, req.body, { new: true })
+
+        return res.json(updatedProduct)
     }
 }
