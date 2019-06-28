@@ -9,10 +9,9 @@ mongoose.connect(
     'mongodb://localhost:27017/producthunt', 
     { useNewUrlParser: true }
 )
+require('./src/models/product')
 
-// Primeira rota
-app.get('/', (req, res) => {
-    res.send('Hello, Lucas!')
-})
+// Rotas
+app.use('/api', require('./src/routes'))
 
 app.listen(3000)
