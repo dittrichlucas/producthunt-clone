@@ -26,5 +26,11 @@ module.exports = {
             .findByIdAndUpdate(req.params.id, req.body, { new: true })
 
         return res.json(updatedProduct)
+    },
+
+    async destroy(req, res) {
+        await product.findByIdAndRemove(req.params.id)
+
+        return res.send('Produto excluído com sucesso :D')
     }
 }
